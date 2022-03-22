@@ -1,0 +1,11 @@
+Package: met
+Type: Package
+Title: What the package does (short line)
+Version: 0.1.0
+Date: 2022-03-20
+Author: Patrick Ding
+Maintainer: Patrick Ding <patrickding00@gmail.com>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: Rcpp (>= 1.0.5)
+LinkingTo: Rcpp, RcppArmadillo, BH

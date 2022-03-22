@@ -1,0 +1,151 @@
+[
+    {
+        "file": "/home/patrick/Research/mvn_region/met/src/cholperm.cpp",
+        "file_last_write": 1647900430.0,
+        "definitions": [
+            {
+                "usr": "c:@F@lnNpr#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "lnNpr(Rcpp::NumericVector, Rcpp::NumericVector, bool)",
+                "file": "/home/patrick/Research/mvn_region/met/src/cholperm.cpp",
+                "line": 22,
+                "column": 15
+            },
+            {
+                "usr": "c:@F@varTN#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S0_#b#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "varTN(Rcpp::NumericVector, Rcpp::NumericVector, bool)",
+                "file": "/home/patrick/Research/mvn_region/met/src/cholperm.cpp",
+                "line": 72,
+                "column": 15
+            },
+            {
+                "usr": "c:@F@cholpermGB#$@N@arma@S@Mat>#d#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S1_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "cholpermGB(arma::mat, Rcpp::NumericVector, Rcpp::NumericVector)",
+                "file": "/home/patrick/Research/mvn_region/met/src/cholperm.cpp",
+                "line": 114,
+                "column": 6
+            },
+            {
+                "usr": "c:@F@cholperm#$@N@arma@S@Mat>#d#$@N@Rcpp@S@Vector>#VI14#@N@Rcpp@ST>1#T@PreserveStorage#S1_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "cholperm(arma::mat, Rcpp::NumericVector, Rcpp::NumericVector)",
+                "file": "/home/patrick/Research/mvn_region/met/src/cholperm.cpp",
+                "line": 224,
+                "column": 6
+            }
+        ]
+    },
+    {
+        "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+        "file_last_write": 1647925925.0,
+        "definitions": [
+            {
+                "usr": "c:@F@ntail#$@N@arma@S@Col>#d#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "ntail(arma::vec, arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 14,
+                "column": 11
+            },
+            {
+                "usr": "c:@F@ntail#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "ntail(const double, const double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 34,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@trnd#$@N@arma@S@Col>#d#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "trnd(arma::vec, arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 46,
+                "column": 11
+            },
+            {
+                "usr": "c:@F@trnd#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "trnd(const double, const double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 62,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@trninv#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "trninv(const double, const double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 72,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@trandn#1$@N@arma@S@Col>#d#1S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "trandn(const arma::vec, const arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 82,
+                "column": 11
+            },
+            {
+                "usr": "c:@F@trandn#1d#1d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "trandn(const double, const double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 113,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@mvn_tilted_accept_reject#I#$@N@arma@S@Col>#d#d#$@N@arma@S@Mat>#d#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "mvn_tilted_accept_reject(int, arma::vec, double, arma::mat, arma::vec, arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
+                "line": 149,
+                "column": 11
+            }
+        ]
+    },
+    {
+        "file": "/home/patrick/Research/mvn_region/met/src/tn_moments.cpp",
+        "file_last_write": 1647889446.0,
+        "definitions": [
+            {
+                "usr": "c:@F@lnNpr#$@N@arma@S@Col>#d#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "lnNpr(arma::vec, arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/tn_moments.cpp",
+                "line": 5,
+                "column": 11
+            },
+            {
+                "usr": "c:@F@lnNpr#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "lnNpr(double, double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/tn_moments.cpp",
+                "line": 38,
+                "column": 8
+            }
+        ]
+    },
+    {
+        "file": "/home/patrick/Research/mvn_region/met/src/tn_moments.h",
+        "file_last_write": 1647889474.0,
+        "definitions": []
+    }
+]

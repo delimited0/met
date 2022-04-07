@@ -42,6 +42,66 @@
         ]
     },
     {
+        "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+        "file_last_write": 1649309195.0,
+        "definitions": [
+            {
+                "usr": "c:@F@qfun#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "qfun(double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 20,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@newton#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "newton(double, double, double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 52,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@normq#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "normq(double, double, double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 110,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@phinv#d#d#d#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "phinv(double, double, double)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 159,
+                "column": 8
+            },
+            {
+                "usr": "c:@F@norminvp#$@N@arma@S@Col>#d#S0_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "norminvp(arma::vec, arma::vec, arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 182,
+                "column": 11
+            },
+            {
+                "usr": "c:@F@mvnprqmc#I#$@N@arma@S@Mat>#d#$@N@arma@S@Col>#d#S1_#S1_#S0_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "mvnprqmc(int, arma::mat, arma::vec, arma::vec, arma::vec, arma::mat)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 225,
+                "column": 8
+            }
+        ]
+    },
+    {
         "file": "/home/patrick/Research/mvn_region/met/src/sampler.cpp",
         "file_last_write": 1647925925.0,
         "definitions": [

@@ -75,6 +75,10 @@ lnNpr <- function(a, b, check = TRUE) {
     .Call(`_met_cholperm`, Sigma, l, u)
 }
 
+mvnprqmc <- function(n, L, l, u, mu, x_qmc) {
+    .Call(`_met_mvnprqmc`, n, L, l, u, mu, x_qmc)
+}
+
 ntail <- function(l, u) {
     .Call(`_met_ntail`, l, u)
 }

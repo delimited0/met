@@ -37,7 +37,7 @@ psy <-  function(x, L, l, u, mu)
 #' Statistical Society, Series B, \bold{79} (1), pp. 1--24.
 #'
 #' @note This version uses a Quasi Monte Carlo (QMC) pointset
-#' of size \code{ceiling(n/12)} and estimates the relative error
+#' of size \code{ceiling(n/n_est)} and estimates the relative error
 #' using 12 independent randomized QMC estimators. QMC
 #' is slower than ordinary Monte Carlo,
 #' but is also likely to be more accurate when \eqn{d<50}.
@@ -54,7 +54,7 @@ psy <-  function(x, L, l, u, mu)
 #' Sig <- matrix(rnorm(d^2), d, d)*2 
 #' Sig <- Sig %*% t(Sig)
 #' mvNqmc(l, u, Sig, 1e4) # compute the probability
-mvNqmc <- function(l, u, Sig, n = 1e5){
+mvNqmc <- function(l, u, Sig, n = 1e5, n_est = 12){
   d <- length(l) # basic input check
   if  (length(u) != d | d != sqrt(length(Sig)) | any(l > u)){
     stop('l, u, and Sig have to match in dimension with u>l')
@@ -120,15 +120,16 @@ mvNqmc <- function(l, u, Sig, n = 1e5){
       stop('Did not find a solution to the nonlinear system in `mvNqmc`!') 
     }
   }
-  p <- rep(0, 12)
-  for (i in 1:12){ # repeat randomized QMC
-    qmc_pts <- randtoolbox::sobol(ceiling(n/12), dim = d-1, init =TRUE, 
-                                  scrambling = 1, seed=ceiling(1e6*runif(1)))
-    p[i] <- mvnprqmc(ceiling(n/12), L = L, l = l, u = u, mu = mu, qmc_pts)
+  p <- rep(0, n_est)
+  for (i in 1:n_est){ # repeat randomized QMC
+    qmc_pts <- 
+      as.matrix(randtoolbox::sobol(ceiling(n/n_est), dim = d-1, init =TRUE, 
+                                   scrambling = 1, seed=ceiling(1e6*runif(1))))
+    p[i] <- mvnprqmc(ceiling(n/n_est), L = L, l = l, u = u, mu = mu, qmc_pts)
   }
   prob <- mean(p) # average of QMC estimates
-  relErr <- sd(p)/(sqrt(12) * prob) # relative error
+  relErr <- sd(p)/(sqrt(n_est) * prob) # relative error
   upbnd <- exp(psy(x, L, l, u, mu)) # compute psi star
-  est <- list(prob = prob, relErr = relErr, upbnd = upbnd)
+  est <- list(prob = prob, relErr = relErr, upbnd = upbnd, n_est = n_est, n = n)
   return(est)
 }

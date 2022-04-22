@@ -8,8 +8,9 @@ rtmvn = function(n, mu, Sigma, lb, ub, A = NULL) {
   return(samples)
 }
 
+#' @param n number of 
 #' @export
-pmvnorm = function(mu, Sigma, lb, ub, A = NULL,
+pmvn = function(mu, Sigma, lb, ub, A = NULL,
                    n = 10000, n_est = 12, type = "qmc") {
   
   # axis aligned problem
@@ -24,5 +25,9 @@ pmvnorm = function(mu, Sigma, lb, ub, A = NULL,
     
   }
   
-  return(result)
+  prob = result$prob
+  attr(prob, "relErr") = result$relErr
+  attr(prob, "upbnd") = result$upbnd
+  
+  return(prob)
 }

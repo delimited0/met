@@ -30,8 +30,12 @@ met::mvNqmc(lb, ub, Sigma)
 d = 3
 lb = rep(0, d)
 ub = rep(Inf, d)
+mu = rep(0, d)
 Sigma = .5 * diag(d) + .5 * rep(1, d) %*% t(rep(1, d))
 met::mvNqmc(lb, ub, Sigma)
+
+met::pmvn(mu, Sigma, lb, ub)
+TruncatedNormal::pmvnorm(mu, Sigma, lb, ub)
 
 
 

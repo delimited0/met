@@ -121,12 +121,17 @@ mvNqmc <- function(l, u, Sig, n = 1e5, n_est = 12){
     }
   }
   p <- rep(0, n_est)
-  for (i in 1:n_est){ # repeat randomized QMC
-    qmc_pts <- 
-      as.matrix(randtoolbox::sobol(ceiling(n/n_est), dim = d-1, init =TRUE, 
-                                   scrambling = 1, seed=ceiling(1e6*runif(1))))
-    p[i] <- mvnprqmc(ceiling(n/n_est), L = L, l = l, u = u, mu = mu, qmc_pts)
+  
+  # repeat randomized QMC
+  for (i in 1:n_est){ 
+    # qmc_pts <- 
+    #   as.matrix(randtoolbox::sobol(ceiling(n/n_est), dim = d-1, init =TRUE, 
+    #                                scrambling = 1, seed=ceiling(1e6*runif(1))))
+    # p[i] <- mvnprqmc(ceiling(n/n_est), L = L, l = l, u = u, mu = mu, qmc_pts)
+    
+    p[i] <- mvnprqmc(n, L = L, l = l, u = u, mu = mu)
   }
+  
   prob <- mean(p) # average of QMC estimates
   relErr <- sd(p)/(sqrt(n_est) * prob) # relative error
   upbnd <- exp(psy(x, L, l, u, mu)) # compute psi star

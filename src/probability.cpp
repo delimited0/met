@@ -221,13 +221,61 @@ arma::vec norminvp(arma::vec p, arma::vec l, arma::vec u) {
   return x;
 }
 
+arma::ivec primes(int n) {
+  std::vector<int> v;
+  v.push_back(2);
+  for (int i = 3; i < n; i++) {
+    bool prime = true;
+    for (int j=2; j*j <= i; j++)
+      if (i % j == 0) {
+        prime = false;
+        break;
+      }
+      if (prime)
+        v.push_back(i);
+  }
+  
+  return v;
+}
+
+// Richtmyer sequence
+//' @param dim dimension
+//' @param n number of richtmyer sequence points
 // [[Rcpp::export]]
-double mvnprqmc(int n, arma::mat L, arma::vec l, arma::vec u, arma::vec mu, 
-                arma::mat x_qmc) {
+arma::mat richtmyer(int dim, int n) {
+  
+  arma::mat x(dim, n);
+  
+  arma::ivec prime = primes(5 * dim * std::log( (double) dim + 1) / 4);
+  arma::vec q(dim);
+  for (int i = 0; i < dim; i++)
+    q(i) = std::sqrt( (double) prime[i] );
+  
+  arma::rowvec one2N(n);
+  for (int i = 0; i < n; i++)
+    one2N(i) = (double) (i+1);
+  arma::mat qN = q * one2N;
+  
+  arma::vec xr = 2. * (arma::randu(dim) - .5);
+  xr.transform( [](double x) { return (x+1)*0.5; });
+  
+  for (int j = 0; j < n; j++) {
+    x.col(j) = qN.col(j) + xr;
+  }
+  
+  x.transform( [](double x) {return std::abs(2 * (x - (int(x)) ) - 1); });
+  return x;
+}
+
+
+// [[Rcpp::export]]
+double mvnprqmc(int n, arma::mat L, arma::vec l, arma::vec u, arma::vec mu) {
   
   int d = l.n_elem;
   
   arma::mat Z(d, n, arma::fill::zeros);
+  
+  arma::mat x_qmc = richtmyer(d-1, n).t();
   
   arma::vec p(n);
   arma::vec col(n, arma::fill::zeros);
@@ -263,19 +311,3 @@ double mvnprqmc(int n, arma::mat L, arma::vec l, arma::vec u, arma::vec mu,
   
   return arma::mean(arma::exp(p));
 }
-
-
-
-// Richtmyer sequence
-// arma::mat x(n, d-1);
-// std::vector<int> prime = primes(5*(d-1) * std::log((double) n+1) / 4);
-// 
-// arma::vec q(d-1);
-// for (int i = 0; i < (d-1); i++) 
-//   q(i) = std::sqrt((double) prime[i]);
-// 
-// arma::rowvec one2N(n);
-// for (int i = 0; i < n; i++)
-//   one2N(i) = (double) (i+1);
-// 
-// arma::mat qN = q * one2N;

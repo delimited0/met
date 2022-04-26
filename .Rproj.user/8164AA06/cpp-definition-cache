@@ -43,7 +43,7 @@
     },
     {
         "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
-        "file_last_write": 1649309195.0,
+        "file_last_write": 1650935221.0,
         "definitions": [
             {
                 "usr": "c:@F@qfun#d#",
@@ -91,12 +91,30 @@
                 "column": 11
             },
             {
-                "usr": "c:@F@mvnprqmc#I#$@N@arma@S@Mat>#d#$@N@arma@S@Col>#d#S1_#S1_#S0_#",
+                "usr": "c:@F@primes#I#",
                 "kind": 6,
                 "parent_name": "",
-                "name": "mvnprqmc(int, arma::mat, arma::vec, arma::vec, arma::vec, arma::mat)",
+                "name": "primes(int)",
                 "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
-                "line": 225,
+                "line": 224,
+                "column": 12
+            },
+            {
+                "usr": "c:@F@richtmyer#I#I#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "richtmyer(int, int)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 245,
+                "column": 11
+            },
+            {
+                "usr": "c:@F@mvnprqmc#I#$@N@arma@S@Mat>#d#$@N@arma@S@Col>#d#S1_#S1_#",
+                "kind": 6,
+                "parent_name": "",
+                "name": "mvnprqmc(int, arma::mat, arma::vec, arma::vec, arma::vec)",
+                "file": "/home/patrick/Research/mvn_region/met/src/probability.cpp",
+                "line": 272,
                 "column": 8
             }
         ]

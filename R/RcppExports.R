@@ -75,8 +75,14 @@ lnNpr <- function(a, b, check = TRUE) {
     .Call(`_met_cholperm`, Sigma, l, u)
 }
 
-mvnprqmc <- function(n, L, l, u, mu, x_qmc) {
-    .Call(`_met_mvnprqmc`, n, L, l, u, mu, x_qmc)
+#' @param dim dimension
+#' @param n number of richtmyer sequence points
+richtmyer <- function(dim, n) {
+    .Call(`_met_richtmyer`, dim, n)
+}
+
+mvnprqmc <- function(n, L, l, u, mu) {
+    .Call(`_met_mvnprqmc`, n, L, l, u, mu)
 }
 
 ntail <- function(l, u) {

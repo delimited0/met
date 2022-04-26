@@ -55,3 +55,33 @@ samples = met::rtmvn(n, mu, Sigma, lb, ub)
 summary(samples)
 
 plot(samples[, c(3, 4)])
+
+
+# high dimensional check --------------------------------------------------
+d = 1000
+lb = rep(0, d)
+ub = rep(Inf, d)
+Sigma = .5*diag(d) + .5*rep(1, d) %*% t(rep(1,d))
+mu = rep(0, d)
+
+tictoc::tic()
+met::pmvn(mu, Sigma, lb, ub, n = 1000, n_est = 12)
+tictoc::toc()
+
+tictoc::tic()
+TruncatedNormal::pmvnorm(mu, Sigma, lb, ub, B = 12000, type = "qmc")
+tictoc::toc()
+
+# even higher dimension --------------------------------------------------
+d = 2000
+lb = rep(0, d)
+ub = rep(Inf, d)
+Sigma = .5*diag(d) + .5*rep(1, d) %*% t(rep(1,d))
+mu = rep(0, d)
+
+tictoc::tic()
+met::pmvn(mu, Sigma, lb, ub, n = 1000, n_est = 12)
+tictoc::toc()
+
+
+

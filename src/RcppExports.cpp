@@ -50,9 +50,21 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// richtmyer
+arma::mat richtmyer(int dim, int n);
+RcppExport SEXP _met_richtmyer(SEXP dimSEXP, SEXP nSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type dim(dimSEXP);
+    Rcpp::traits::input_parameter< int >::type n(nSEXP);
+    rcpp_result_gen = Rcpp::wrap(richtmyer(dim, n));
+    return rcpp_result_gen;
+END_RCPP
+}
 // mvnprqmc
-double mvnprqmc(int n, arma::mat L, arma::vec l, arma::vec u, arma::vec mu, arma::mat x_qmc);
-RcppExport SEXP _met_mvnprqmc(SEXP nSEXP, SEXP LSEXP, SEXP lSEXP, SEXP uSEXP, SEXP muSEXP, SEXP x_qmcSEXP) {
+double mvnprqmc(int n, arma::mat L, arma::vec l, arma::vec u, arma::vec mu);
+RcppExport SEXP _met_mvnprqmc(SEXP nSEXP, SEXP LSEXP, SEXP lSEXP, SEXP uSEXP, SEXP muSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -61,8 +73,7 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< arma::vec >::type l(lSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type u(uSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type mu(muSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type x_qmc(x_qmcSEXP);
-    rcpp_result_gen = Rcpp::wrap(mvnprqmc(n, L, l, u, mu, x_qmc));
+    rcpp_result_gen = Rcpp::wrap(mvnprqmc(n, L, l, u, mu));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -135,7 +146,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_met_lnNpr", (DL_FUNC) &_met_lnNpr, 3},
     {"_met_cholpermGB", (DL_FUNC) &_met_cholpermGB, 3},
     {"_met_cholperm", (DL_FUNC) &_met_cholperm, 3},
-    {"_met_mvnprqmc", (DL_FUNC) &_met_mvnprqmc, 6},
+    {"_met_richtmyer", (DL_FUNC) &_met_richtmyer, 2},
+    {"_met_mvnprqmc", (DL_FUNC) &_met_mvnprqmc, 5},
     {"_met_ntail", (DL_FUNC) &_met_ntail, 2},
     {"_met_trnd", (DL_FUNC) &_met_trnd, 2},
     {"_met_trninv", (DL_FUNC) &_met_trninv, 2},

@@ -133,8 +133,10 @@ mvNqmc <- function(l, u, Sig, n = 1e5, n_est = 12){
   }
   
   prob <- mean(p) # average of QMC estimates
-  relErr <- sd(p)/(sqrt(n_est) * prob) # relative error
+  error <- sd(p) / sqrt(n_est)
+  relErr <- error / prob # relative error
   upbnd <- exp(psy(x, L, l, u, mu)) # compute psi star
-  est <- list(prob = prob, relErr = relErr, upbnd = upbnd, n_est = n_est, n = n)
+  est <- list(prob = prob, error = error, relErr = relErr,
+              upbnd = upbnd, n_est = n_est, n = n)
   return(est)
 }

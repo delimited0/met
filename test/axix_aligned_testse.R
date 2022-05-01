@@ -80,7 +80,7 @@ Sigma = .5*diag(d) + .5*rep(1, d) %*% t(rep(1,d))
 mu = rep(0, d)
 
 tictoc::tic()
-met::pmvn(mu, Sigma, lb, ub, n = 1000, n_est = 12)
+met::pmvn(mu, Sigma, lb, ub, n = 1000, n_est = 10)
 tictoc::toc()
 
 

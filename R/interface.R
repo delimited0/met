@@ -26,6 +26,7 @@ pmvn = function(mu, Sigma, lb, ub, A = NULL,
   }
   
   prob = result$prob
+  attr(prob, "error") = result$error
   attr(prob, "relErr") = result$relErr
   attr(prob, "upbnd") = result$upbnd
   
